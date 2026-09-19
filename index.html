@@ -33,7 +33,7 @@
               <i class="fa-solid fa-lock text-[9px] mr-1"></i>View Only
             </span>
             <span id="cloudStatusBadge" class="text-[10px] bg-slate-800 border border-slate-700 text-slate-400 font-mono px-2 py-0.5 rounded-full flex items-center gap-1">
-              <i class="fa-solid fa-cloud text-[9px]"></i> Local Mode
+              <i class="fa-solid fa-cloud text-[9px]"></i> Initializing...
             </span>
           </div>
           <p class="text-xs text-slate-400">Fixed Cap Package, Facade & Broken-Fix Reconciled Tracker</p>
@@ -41,7 +41,6 @@
       </div>
 
       <div class="flex items-center gap-2 flex-wrap no-print">
-        <!-- Cloud Manual Fetch & Sync Button (Saves API Limit) -->
         <button id="syncCloudBtn" onclick="fetchFromCloud(true)" class="bg-teal-600/30 hover:bg-teal-600/50 text-teal-300 border border-teal-500/40 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition" title="Fetch latest from Cloud">
           <i class="fa-solid fa-rotate text-xs" id="syncIcon"></i> Fetch Cloud
         </button>
@@ -82,7 +81,7 @@
         <div class="text-2xl font-black text-slate-100 font-mono" id="kpiMasterContract">৳ 0</div>
         <div class="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
           <i class="fa-solid fa-building text-amber-500 text-[10px]"></i>
-          <span>Floors 2–9 + Extras (৳ 2,133,526)</span>
+          <span id="kpiContractSubText">Package + Extras</span>
         </div>
       </div>
 
@@ -109,11 +108,11 @@
           <span class="font-mono font-bold text-slate-200" id="kpiOutsidePlaster">৳ 0</span>
         </div>
         <div class="text-[10px] text-sky-400/90 bg-sky-950/40 border border-sky-800/40 px-2 py-0.5 rounded mt-1">
-          2 of 4 Sides Done (৳300k paid • ৳300k pending)
+          Outer Plaster Pool Filter
         </div>
         <div class="flex justify-between items-center text-xs mt-2 pt-1 border-t border-slate-800" onclick="event.stopPropagation(); setFilter('BROKEN_FIX');">
           <span class="text-amber-300/90 font-semibold hover:underline"><i class="fa-solid fa-hammer text-[10px] mr-1"></i>Broken / Fix Extra:</span>
-          <span class="font-mono font-bold text-amber-400" id="kpiBrokenFixTotal">৳ 40,000</span>
+          <span class="font-mono font-bold text-amber-400" id="kpiBrokenFixTotal">৳ 0</span>
         </div>
       </div>
     </section>
@@ -138,7 +137,7 @@
         </div>
         <p class="text-[11px] text-slate-400 mb-3" id="tier1ScopeText">3 Floors × 2,500 sq ft</p>
         <div class="text-xs space-y-1.5 font-mono">
-          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tier1Budget">৳ 787,500</span></div>
+          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tier1Budget">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Charged:</span><span class="text-emerald-400 font-semibold" id="tier1Paid">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Balance:</span><span class="text-amber-400 font-semibold" id="tier1Due">৳ 0</span></div>
         </div>
@@ -151,7 +150,7 @@
         </div>
         <p class="text-[11px] text-slate-400 mb-3" id="tier2ScopeText">4 Floors × 2,500 sq ft</p>
         <div class="text-xs space-y-1.5 font-mono">
-          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tier2Budget">৳ 1,100,000</span></div>
+          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tier2Budget">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Charged:</span><span class="text-emerald-400 font-semibold" id="tier2Paid">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Balance:</span><span class="text-amber-400 font-semibold" id="tier2Due">৳ 0</span></div>
         </div>
@@ -164,7 +163,7 @@
         </div>
         <p class="text-[11px] text-slate-400 mb-3" id="tier3ScopeText">1 Floor × 1,400 sq ft</p>
         <div class="text-xs space-y-1.5 font-mono">
-          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tier3Budget">৳ 154,000</span></div>
+          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tier3Budget">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Charged:</span><span class="text-emerald-400 font-semibold" id="tier3Paid">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Balance:</span><span class="text-amber-400 font-semibold" id="tier3Due">৳ 0</span></div>
         </div>
@@ -177,7 +176,7 @@
         </div>
         <p class="text-[11px] text-slate-400 mb-3">Lift Core + Tank & Railing</p>
         <div class="text-xs space-y-1.5 font-mono">
-          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tierExtraBudget">৳ 92,026</span></div>
+          <div class="flex justify-between text-slate-400"><span>Budget:</span><span class="text-slate-200 font-semibold" id="tierExtraBudget">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Paid:</span><span class="text-emerald-400 font-semibold" id="tierExtraPaid">৳ 0</span></div>
           <div class="flex justify-between text-slate-400"><span>Balance:</span><span class="text-amber-400 font-semibold" id="tierExtraDue">৳ 0</span></div>
         </div>
@@ -192,16 +191,16 @@
           <p class="text-[11px] text-slate-500">Cards auto-stretch across rows. Click any card to filter its entries below.</p>
         </div>
         <div class="text-[11px] flex items-center gap-2 font-mono flex-wrap">
-          <span class="flex items-center gap-1 text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 175k Inside Done</span>
-          <span class="flex items-center gap-1 text-amber-400"><span class="w-2 h-2 rounded-full bg-amber-400"></span> 125k Plaster Due</span>
-          <span class="flex items-center gap-1 text-sky-400"><span class="w-2 h-2 rounded-full bg-sky-400"></span> Outer Facade (৳300k)</span>
-          <span class="flex items-center gap-1 text-amber-300"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Broken & Fix (৳40k)</span>
+          <span class="flex items-center gap-1 text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Inside Done</span>
+          <span class="flex items-center gap-1 text-amber-400"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Plaster Due</span>
+          <span class="flex items-center gap-1 text-sky-400"><span class="w-2 h-2 rounded-full bg-sky-400"></span> Outer Facade</span>
+          <span class="flex items-center gap-1 text-amber-300"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Broken & Fix</span>
         </div>
       </div>
       <div id="floorCardsGrid" class="flex flex-wrap gap-3.5"></div>
     </section>
 
-    <!-- Transactions Control Bar & Table -->
+    <!-- Transactions Table -->
     <section class="bg-slate-900/90 border border-slate-800 p-4 rounded-2xl space-y-4 shadow-sm">
       <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
         <div class="relative flex-1 max-w-lg">
@@ -209,7 +208,7 @@
           <input 
             type="text" 
             id="searchInput" 
-            placeholder="Search tasks, dates (e.g. 5/10/25), tags, amounts, recipients..." 
+            placeholder="Search tasks, dates, tags, amounts, recipients..." 
             oninput="handleSearch()"
             class="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition"
           />
@@ -218,19 +217,19 @@
         <div class="flex flex-wrap gap-1.5 text-xs" id="quickFilterPills">
           <button onclick="setFilter('ALL')" class="pill-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold" data-filter="ALL">All Records</button>
           <button onclick="setFilter('#OutsidePlaster')" class="pill-btn px-3 py-1.5 rounded-lg bg-sky-950 text-sky-300 border border-sky-700/60 font-semibold hover:bg-sky-900/70" data-filter="#OutsidePlaster">
-            <i class="fa-solid fa-layer-group text-[10px] mr-1"></i>Outer Plaster (2 Sides - ৳3L)
+            <i class="fa-solid fa-layer-group text-[10px] mr-1"></i>Outer Plaster
           </button>
           <button onclick="setFilter('TIER1')" class="pill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700" data-filter="TIER1">Floors 1–4</button>
           <button onclick="setFilter('TIER2')" class="pill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700" data-filter="TIER2">Floors 5–8</button>
           <button onclick="setFilter('TIER3')" class="pill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700" data-filter="TIER3">Floor 9</button>
           <button onclick="setFilter('EXTRAS')" class="pill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700" data-filter="EXTRAS">Structural Extras</button>
           <button onclick="setFilter('BROKEN_FIX')" class="pill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-amber-300 border border-amber-500/40 font-semibold hover:bg-slate-700" data-filter="BROKEN_FIX">
-            <i class="fa-solid fa-hammer text-[10px] mr-1"></i>Broken & Fix / Advance (৳40,000)
+            <i class="fa-solid fa-hammer text-[10px] mr-1"></i>Broken & Fix / Advance
           </button>
         </div>
       </div>
 
-      <!-- Table -->
+      <!-- Table Container -->
       <div class="overflow-x-auto rounded-xl border border-slate-800">
         <table class="w-full text-left text-xs sm:text-sm print-border">
           <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800 font-mono">
@@ -327,8 +326,8 @@
               <option value="7">Floor 7</option>
               <option value="8">Floor 8</option>
               <option value="9">Floor 9 (Base 1400 sqft)</option>
-              <option value="OUTSIDE_POOL">Facade: Outside Plaster Pool (600k Quota)</option>
-              <option value="LIFT_EXTRA">Structural Extra: Lift (14,026 BDT)</option>
+              <option value="OUTSIDE_POOL">Facade: Outside Plaster Pool</option>
+              <option value="LIFT_EXTRA">Structural Extra: Lift</option>
               <option value="TANK">Structural Extra: Water Tank & Stairs</option>
             </select>
           </div>
@@ -479,10 +478,10 @@
 
   <script>
     // ==========================================
-    // 1. CLOUD CONFIGURATION (JSONBin.io)  
+    // 1. CLOUD CONFIGURATION
     // ==========================================
-    const JSONBIN_BIN_ID = '6aae4482ac6210605adf1c37';       // e.g. '66f01234abcd...'
-    const JSONBIN_API_KEY = '$2a$10$BxT4CDG2uxtBiQKuWjbQfemzo5PCipuLfIRxfbdupcF36A/g6N4e.';     // e.g. '$2a$10$...'
+    const JSONBIN_BIN_ID = '6aae4482ac6210605adf1c37';
+    const JSONBIN_API_KEY = '$2a$10$BxT4CDG2uxtBiQKuWjbQfemzo5PCipuLfIRxfbdupcF36A/g6N4e.';
     
     const STORAGE_KEY_TX = 'BUILDING_TRANSACTIONS_V6';
     const STORAGE_KEY_CONFIG = 'BUILDING_CONFIG_V6';
@@ -491,7 +490,8 @@
     let isAuthenticated = false;
     let pendingAuthCallback = null;
 
-    const DEFAULT_CONFIG = {
+    // Minimum fallback layout ONLY if cloud or cache is completely blank
+    const BLANK_CONFIG = {
       floors: {
         '1': { name: 'Floor 1 (Ground)', area: 2500, rate: 105, activeInMaster: false },
         '2': { name: 'Floor 2', area: 2500, rate: 105, activeInMaster: true },
@@ -503,76 +503,22 @@
         '8': { name: 'Floor 8', area: 2500, rate: 110, activeInMaster: true },
         '9': { name: 'Floor 9', area: 1400, rate: 110, activeInMaster: true }
       },
-      extras: {
-        liftExtra: 14026,
-        tankLump: 78000
-      }
+      extras: { liftExtra: 14026, tankLump: 78000 }
     };
 
-    const INITIAL_SEED_TRANSACTIONS = [
-      { id: "tx-1789748712565", floor: "2", task: "Ceiling Plaster", amount: 51000, dateStr: "10/09/2025", isoDate: "2025-09-10", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-1789748767866", floor: "2", task: "Gatuni (Brickwork)", amount: 26000, dateStr: "14/09/2025", isoDate: "2025-09-14", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789748802881", floor: "2", task: "Gatuni (Brickwork)", amount: 20000, dateStr: "18/09/2025", isoDate: "2025-09-18", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789748960913", floor: "2", task: "Gatuni (Brickwork)", amount: 50000, dateStr: "22/09/2025", isoDate: "2025-09-22", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789749171707", floor: "2", task: "Inside Wall Plaster", amount: 30000, dateStr: "17/11/2025", isoDate: "2025-11-17", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-3-1", floor: "3", task: "Ceiling / Gatuni Paid", amount: 50000, dateStr: "27/09/2025", isoDate: "2025-09-27", tags: ["#Gatuni", "#Ceiling"], recipient: "Saidul" },
-      { id: "tx-3-2", floor: "3", task: "Gatuni", amount: 10000, dateStr: "05/10/2025", isoDate: "2025-10-05", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-3-3", floor: "3", task: "Gatuni", amount: 15000, dateStr: "07/10/2025", isoDate: "2025-10-07", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-3-4", floor: "3", task: "Ceiling", amount: 50000, dateStr: "10/10/2025", isoDate: "2025-10-10", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-3-5", floor: "3", task: "Gatuni", amount: 50000, dateStr: "17/10/2025", isoDate: "2025-10-17", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-3-6", floor: "3", task: "Inside Plaster", amount: 50000, dateStr: "27/11/2025", isoDate: "2025-11-27", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-4-1", floor: "4", task: "Gatuni", amount: 50000, dateStr: "30/10/2025", isoDate: "2025-10-30", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-4-4", floor: "4", task: "Inside Plaster", amount: 20000, dateStr: "07/12/2025", isoDate: "2025-12-07", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-4-6", floor: "4", task: "Inside Plaster", amount: 30000, dateStr: "14/12/2025", isoDate: "2025-12-14", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-5-1", floor: "5", task: "Gatuni", amount: 25000, dateStr: "18/12/2025", isoDate: "2025-12-18", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-5-2", floor: "5", task: "Ceiling / Rough Plaster", amount: 50000, dateStr: "29/12/2025", isoDate: "2025-12-29", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-5-3", floor: "5", task: "Gatuni", amount: 10000, dateStr: "06/01/2026", isoDate: "2026-01-06", tags: ["#Gatuni"], recipient: "Mamun" },
-      { id: "tx-5-4", floor: "5", task: "Gatuni", amount: 40000, dateStr: "14/01/2026", isoDate: "2026-01-14", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789789108312", floor: "6", task: "Gatuni (Brickwork)", amount: 10000, dateStr: "03/02/2026", isoDate: "2026-02-03", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789789149901", floor: "6", task: "Gatuni (Brickwork)", amount: 10000, dateStr: "07/02/2026", isoDate: "2026-02-07", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789789201815", floor: "6", task: "Ceiling Plaster", amount: 55000, dateStr: "08/02/2026", isoDate: "2026-02-08", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-1789789242003", floor: "6", task: "Gatuni (Brickwork)", amount: 10000, dateStr: "26/02/2026", isoDate: "2026-02-26", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789789289156", floor: "6", task: "Gatuni (Brickwork)", amount: 5000, dateStr: "17/03/2026", isoDate: "2026-03-17", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789789358123", floor: "6", task: "Gatuni (Brickwork)", amount: 20000, dateStr: "20/04/2026", isoDate: "2026-04-20", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-1789789413013", floor: "6", task: "Gatuni (Brickwork)", amount: 15000, dateStr: "24/04/2026", isoDate: "2026-04-24", tags: ["#Gatuni"], recipient: "Mahbub" },
-      { id: "tx-7-1", floor: "7", task: "Gatuni", amount: 10000, dateStr: "02/04/2026", isoDate: "2026-04-02", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-7-2", floor: "7", task: "Gatuni", amount: 15000, dateStr: "05/04/2026", isoDate: "2026-04-05", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-7-3", floor: "7", task: "Inside Plaster Part", amount: 30000, dateStr: "12/04/2026", isoDate: "2026-04-12", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-7-4", floor: "7", task: "Ceiling", amount: 20000, dateStr: "16/04/2026", isoDate: "2026-04-16", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-7-5", floor: "7", task: "Gatuni", amount: 10000, dateStr: "30/04/2026", isoDate: "2026-04-30", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-7-6", floor: "7", task: "Gatuni", amount: 30000, dateStr: "17/05/2026", isoDate: "2026-05-17", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-8-1", floor: "8", task: "Gatuni", amount: 20000, dateStr: "25/05/2026", isoDate: "2026-05-25", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-8-2", floor: "8", task: "Gatuni", amount: 5000, dateStr: "04/06/2026", isoDate: "2026-06-04", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-8-3", floor: "8", task: "Ceiling", amount: 50000, dateStr: "08/06/2026", isoDate: "2026-06-08", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-8-5", floor: "8", task: "Gatuni", amount: 50000, dateStr: "05/07/2026", isoDate: "2026-07-05", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-8-6", floor: "8", task: "Inside Plaster", amount: 50000, dateStr: "08/09/2026", isoDate: "2026-09-08", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-9-1", floor: "9", task: "Gatuni", amount: 15000, dateStr: "18/06/2026", isoDate: "2026-06-18", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-9-2", floor: "9", task: "Ceiling", amount: 35000, dateStr: "24/06/2026", isoDate: "2026-06-24", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-9-3", floor: "9", task: "Ceiling Small Remainder", amount: 5000, dateStr: "04/07/2026", isoDate: "2026-07-04", tags: ["#Ceiling"], recipient: "Saidul" },
-      { id: "tx-9-4", floor: "9", task: "Gatuni", amount: 40000, dateStr: "17/07/2026", isoDate: "2026-07-17", tags: ["#Gatuni"], recipient: "Saidul" },
-      { id: "tx-9-5", floor: "9", task: "Settlement Remaining Balance", amount: 53974, dateStr: "18/08/2026", isoDate: "2026-08-18", tags: ["#InsidePlaster"], recipient: "Saidul" },
-      { id: "tx-lift-1", floor: "LIFT_EXTRA", task: "Lift 5ft Structure Extended Work", amount: 14026, dateStr: "18/08/2026", isoDate: "2026-08-18", tags: ["#Extra"], recipient: "Saidul" },
-      { id: "tx-tank-1", floor: "TANK", task: "Water Tank + Roof Railing + Stairs Lump", amount: 78000, dateStr: "09/08/2026", isoDate: "2026-08-09", tags: ["#Extra"], recipient: "Saidul" },
-      { id: "tx-1789750171798", floor: "4", task: "4 Floor Extra (Wall Vangce je Sei jonno)", amount: 20000, dateStr: "06/11/2025", isoDate: "2025-11-06", tags: ["#Advance", "#Extra"], recipient: "Saidul" },
-      { id: "tx-1789750323762", floor: "4", task: "3/4 Floor Extra Wall Vange", amount: 10000, dateStr: "10/12/2025", isoDate: "2025-12-10", tags: ["#Advance", "#Extra"], recipient: "Saidul" },
-      { id: "tx-1789750407940", floor: "8", task: "Otirikto Dhar Deya hoyce, 2 bare diye deyar kotachilo kinto dei nai", amount: 10000, dateStr: "08/06/2026", isoDate: "2026-06-08", tags: ["#Advance", "#Extra"], recipient: "Saidul" },
-      { id: "tx-out-1", floor: "OUTSIDE_POOL", task: "বাইরের প্লাস্টার (26/07/26)", amount: 50000, dateStr: "26/07/2026", isoDate: "2026-07-26", tags: ["#OutsidePlaster"], recipient: "Saidul" },
-      { id: "tx-out-2", floor: "OUTSIDE_POOL", task: "বাহিরের প্লাস্টার (01/08/26)", amount: 100000, dateStr: "01/08/2026", isoDate: "2026-08-01", tags: ["#OutsidePlaster"], recipient: "Saidul" },
-      { id: "tx-out-3", floor: "OUTSIDE_POOL", task: "বাহির এর প্লাস্টার (27/08/26)", amount: 50000, dateStr: "27/08/2026", isoDate: "2026-08-27", tags: ["#OutsidePlaster"], recipient: "Saidul" },
-      { id: "tx-out-4", floor: "OUTSIDE_POOL", task: "বাহির এর প্লাস্টার (31/08/26)", amount: 50000, dateStr: "31/08/2026", isoDate: "2026-08-31", tags: ["#OutsidePlaster"], recipient: "Saidul" },
-      { id: "tx-out-5", floor: "OUTSIDE_POOL", task: "বাহির এর প্লাস্টার (13/09/26)", amount: 50000, dateStr: "13/09/2026", isoDate: "2026-09-13", tags: ["#OutsidePlaster"], recipient: "Saidul" }
-    ];
-
+    // NO HARDCODED TRANSACTIONS HERE
     let transactions = [];
-    let appConfig = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+    let appConfig = JSON.parse(JSON.stringify(BLANK_CONFIG));
     let activeFilter = 'ALL';
     let searchQuery = '';
 
     // ==========================================
-    // 2. LOCAL-FIRST INIT (ZERO API CALL ON RELOAD)
+    // 2. ZERO-HARDCODE CACHE-FIRST LOGIC
     // ==========================================
-    function initApp() {
-      // 1. First priority: Check URL Hash Share State
+    async function initApp() {
+      updateAuthUI();
+
+      // 1. Priority: URL Hash Import
       if (window.location.hash && window.location.hash.length > 5) {
         try {
           const rawHash = window.location.hash.substring(1);
@@ -585,7 +531,6 @@
             history.replaceState(null, null, window.location.pathname);
             updateCloudBadge("Imported via Link", "amber");
             render();
-            updateAuthUI();
             return;
           }
         } catch (err) {
@@ -593,34 +538,27 @@
         }
       }
 
-      // 2. Second priority: LocalStorage (Fast, offline, 0 request cost)
-      const savedConfig = localStorage.getItem(STORAGE_KEY_CONFIG);
-      const savedTx = localStorage.getItem(STORAGE_KEY_TX);
+      // 2. Check localStorage cache
+      const cachedTx = localStorage.getItem(STORAGE_KEY_TX);
+      const cachedConfig = localStorage.getItem(STORAGE_KEY_CONFIG);
 
-      if (savedTx && savedConfig) {
+      if (cachedTx !== null && cachedConfig !== null) {
+        // Cache exists -> Instant load without calling API (Saves quota)
         try {
-          transactions = JSON.parse(savedTx);
-          appConfig = JSON.parse(savedConfig);
+          transactions = JSON.parse(cachedTx) || [];
+          appConfig = JSON.parse(cachedConfig) || BLANK_CONFIG;
           updateCloudBadge("Cached (Local)", "slate");
+          render();
+          return;
         } catch (e) {
-          transactions = [...INITIAL_SEED_TRANSACTIONS];
-          appConfig = DEFAULT_CONFIG;
+          console.warn("Corrupt local cache. Fetching from cloud...");
         }
-      } else {
-        // Fallback initial seeds if totally empty
-        transactions = [...INITIAL_SEED_TRANSACTIONS];
-        appConfig = DEFAULT_CONFIG;
-        saveLocalStorageOnly();
-        updateCloudBadge("Initial Seed", "slate");
       }
 
-      updateAuthUI();
-      render();
+      // 3. If cache does NOT exist (First visit/cleared cache), Fetch from Cloud
+      await fetchFromCloud(false);
     }
 
-    // ==========================================
-    // 3. CLOUD JSON STORAGE SYNC ENGINE
-    // ==========================================
     function isCloudConfigured() {
       return JSONBIN_BIN_ID && JSONBIN_BIN_ID !== 'YOUR_BIN_ID_HERE' && 
              JSONBIN_API_KEY && JSONBIN_API_KEY !== 'YOUR_API_KEY_HERE';
@@ -643,7 +581,7 @@
 
     async function fetchFromCloud(userInitiated = false) {
       if (!isCloudConfigured()) {
-        if (userInitiated) alert('Please setup your JSONBIN_BIN_ID and JSONBIN_API_KEY in the script first.');
+        if (userInitiated) alert('Please set JSONBIN_BIN_ID and JSONBIN_API_KEY in the script.');
         return;
       }
 
@@ -652,7 +590,7 @@
       updateCloudBadge("Fetching...", "amber");
 
       try {
-        const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+        const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest?meta=false`, {
           method: 'GET',
           headers: {
             'X-Master-Key': JSONBIN_API_KEY
@@ -661,17 +599,19 @@
 
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
-        
-        if (data && data.record && Array.isArray(data.record.transactions)) {
-          transactions = data.record.transactions;
-          if (data.record.config) appConfig = data.record.config;
+        const cloudRecord = data.record ? data.record : data;
 
+        if (cloudRecord) {
+          transactions = Array.isArray(cloudRecord.transactions) ? cloudRecord.transactions : [];
+          if (cloudRecord.config && Object.keys(cloudRecord.config).length > 0) {
+            appConfig = cloudRecord.config;
+          }
+
+          // Cache locally to prevent unnecessary future calls
           saveLocalStorageOnly();
-          render();
           updateCloudBadge("Synced (Cloud)", "emerald");
-          if (userInitiated) alert(`Successfully synced ${transactions.length} records from Cloud!`);
-        } else {
-          throw new Error('Unexpected payload structure from JSONBin');
+          render();
+          if (userInitiated) alert(`Successfully fetched ${transactions.length} records from Cloud!`);
         }
       } catch (err) {
         console.error('Cloud fetch failed:', err);
@@ -686,7 +626,6 @@
       // 1. Instant local persistence
       saveLocalStorageOnly();
 
-      // 2. Push to JSONBin.io if keys present
       if (!isCloudConfigured()) {
         updateCloudBadge("Local Only", "slate");
         return;
@@ -710,7 +649,7 @@
         });
 
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        updateCloudBadge("Saved (Cloud)", "emerald");
+        updateCloudBadge("Synced (Cloud)", "emerald");
       } catch (err) {
         console.error('Cloud write failed:', err);
         updateCloudBadge("Saved (Local Only)", "amber");
@@ -723,7 +662,7 @@
     }
 
     // ==========================================
-    // 4. AUTH PROTECTION
+    // 3. AUTH LOCK ENGINE
     // ==========================================
     function requireAuth(actionCallback) {
       if (isAuthenticated) {
@@ -797,7 +736,7 @@
     }
 
     // ==========================================
-    // 5. CALCULATION & PARSING
+    // 4. PARSERS & CALCULATIONS
     // ==========================================
     function parseDate(inputStr) {
       if (!inputStr) {
@@ -827,21 +766,21 @@
     function calculateFinances() {
       let t1Budget = 0;
       for (let i = 2; i <= 4; i++) {
-        const f = appConfig.floors[String(i)];
+        const f = appConfig.floors[String(i)] || { area: 0, rate: 0 };
         t1Budget += (f.area * f.rate);
       }
 
       let t2Budget = 0;
       for (let i = 5; i <= 8; i++) {
-        const f = appConfig.floors[String(i)];
+        const f = appConfig.floors[String(i)] || { area: 0, rate: 0 };
         t2Budget += (f.area * f.rate);
       }
 
-      const f9 = appConfig.floors['9'];
+      const f9 = appConfig.floors['9'] || { area: 0, rate: 0 };
       const t3Budget = (f9.area * f9.rate);
 
       const packageContract = t1Budget + t2Budget + t3Budget;
-      const extrasBudget = Number(appConfig.extras.liftExtra) + Number(appConfig.extras.tankLump);
+      const extrasBudget = Number(appConfig.extras?.liftExtra || 0) + Number(appConfig.extras?.tankLump || 0);
       const masterContract = packageContract + extrasBudget;
 
       const grandTotalPaid = transactions.reduce((acc, t) => acc + Number(t.amount || 0), 0);
@@ -849,16 +788,16 @@
 
       const outsidePlasterPaid = transactions
         .filter(t => (t.tags && t.tags.includes('#OutsidePlaster')) || t.floor === 'OUTSIDE_POOL')
-        .reduce((acc, t) => acc + Number(t.amount), 0);
+        .reduce((acc, t) => acc + Number(t.amount || 0), 0);
 
       const brokenFixPaid = transactions
         .filter(t => t.tags && t.tags.includes('#Advance') && t.tags.includes('#Extra'))
-        .reduce((acc, t) => acc + Number(t.amount), 0);
+        .reduce((acc, t) => acc + Number(t.amount || 0), 0);
 
-      const t1Paid = transactions.filter(t => ['2','3','4'].includes(t.floor)).reduce((s,t) => s + Number(t.amount), 0);
-      const t2Paid = transactions.filter(t => ['5','6','7','8'].includes(t.floor)).reduce((s,t) => s + Number(t.amount), 0);
-      const t3Paid = transactions.filter(t => t.floor === '9').reduce((s,t) => s + Number(t.amount), 0);
-      const extrasPaid = transactions.filter(t => ['LIFT_EXTRA', 'TANK'].includes(t.floor)).reduce((s,t) => s + Number(t.amount), 0);
+      const t1Paid = transactions.filter(t => ['2','3','4'].includes(t.floor)).reduce((s,t) => s + Number(t.amount || 0), 0);
+      const t2Paid = transactions.filter(t => ['5','6','7','8'].includes(t.floor)).reduce((s,t) => s + Number(t.amount || 0), 0);
+      const t3Paid = transactions.filter(t => t.floor === '9').reduce((s,t) => s + Number(t.amount || 0), 0);
+      const extrasPaid = transactions.filter(t => ['LIFT_EXTRA', 'TANK'].includes(t.floor)).reduce((s,t) => s + Number(t.amount || 0), 0);
 
       return {
         masterContract,
@@ -874,7 +813,7 @@
     }
 
     // ==========================================
-    // 6. UI RENDER ENGINES
+    // 5. RENDER SYSTEM
     // ==========================================
     function render() {
       const fin = calculateFinances();
@@ -923,16 +862,16 @@
 
       let activePlasterArea = 0;
       for (let i = 2; i <= 9; i++) {
-        activePlasterArea += Number(appConfig.floors[String(i)].area);
+        activePlasterArea += Number(appConfig.floors[String(i)]?.area || 0);
       }
 
       for (let i = 1; i <= 9; i++) {
         const key = String(i);
-        const fSpec = appConfig.floors[key];
+        const fSpec = appConfig.floors[key] || { name: `Floor ${i}`, area: 0, rate: 0 };
         const floorBudget = fSpec.area * fSpec.rate;
 
         const directTxs = transactions.filter(t => t.floor === key);
-        const directPaid = directTxs.reduce((sum, t) => sum + Number(t.amount), 0);
+        const directPaid = directTxs.reduce((sum, t) => sum + Number(t.amount || 0), 0);
 
         let outsideShare2Sides = 0;
         if (i >= 2 && activePlasterArea > 0) {
@@ -945,13 +884,13 @@
 
         let statusBadge = '';
         if (i === 1) {
-          statusBadge = `<span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full">Not Started (0 BDT)</span>`;
+          statusBadge = `<span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full">Not Started</span>`;
         } else if ([2, 3, 4, 8].includes(i)) {
-          statusBadge = `<span class="text-[10px] bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 px-2 py-0.5 rounded-full">Inside Done (~175k)</span>`;
+          statusBadge = `<span class="text-[10px] bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 px-2 py-0.5 rounded-full">Inside Done</span>`;
         } else if ([5, 6, 7].includes(i)) {
-          statusBadge = `<span class="text-[10px] bg-amber-950/80 border border-amber-700/60 text-amber-300 px-2 py-0.5 rounded-full">Wall Plaster Due (~125k)</span>`;
+          statusBadge = `<span class="text-[10px] bg-amber-950/80 border border-amber-700/60 text-amber-300 px-2 py-0.5 rounded-full">Plaster Due</span>`;
         } else {
-          statusBadge = `<span class="text-[10px] bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 px-2 py-0.5 rounded-full">Base Fully Settled (154k)</span>`;
+          statusBadge = `<span class="text-[10px] bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 px-2 py-0.5 rounded-full">Settled</span>`;
         }
 
         const card = document.createElement('div');
@@ -966,9 +905,9 @@
             </div>
             <div class="mb-2">${statusBadge}</div>
             <div class="text-[11px] text-slate-400 space-y-0.5 font-mono">
-              <div class="flex justify-between"><span>Fixed Budget:</span><span>৳ ${formatNumber(floorBudget)}</span></div>
+              <div class="flex justify-between"><span>Budget:</span><span>৳ ${formatNumber(floorBudget)}</span></div>
               <div class="flex justify-between"><span>Direct Paid:</span><span class="text-slate-200">৳ ${formatNumber(directPaid)}</span></div>
-              ${outsideShare2Sides > 0 ? `<div class="flex justify-between text-sky-400 font-semibold cursor-pointer hover:underline" onclick="event.stopPropagation(); setFilter('#OutsidePlaster');" title="Click to view outside plaster logs"><span>Outer (2 Sides):</span><span>+৳ ${formatNumber(outsideShare2Sides)}</span></div>` : ''}
+              ${outsideShare2Sides > 0 ? `<div class="flex justify-between text-sky-400 font-semibold" onclick="event.stopPropagation(); setFilter('#OutsidePlaster');"><span>Outer Share:</span><span>+৳ ${formatNumber(outsideShare2Sides)}</span></div>` : ''}
             </div>
           </div>
           <div class="pt-2 mt-2 border-t border-slate-800">
@@ -997,27 +936,15 @@
         <div>
           <div class="flex justify-between items-start mb-1.5">
             <span class="font-bold text-sky-300 text-sm">Outer Plaster</span>
-            <span class="text-[10px] bg-sky-950/60 text-sky-400 font-mono px-1.5 py-0.5 rounded border border-sky-800/60">2 of 4 Sides</span>
+            <span class="text-[10px] bg-sky-950/60 text-sky-400 font-mono px-1.5 py-0.5 rounded border border-sky-800/60">Facade</span>
           </div>
-          <div class="mb-2"><span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">5 Records (৳3,00,000)</span></div>
+          <div class="mb-2"><span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">Total Paid</span></div>
           <div class="text-[11px] text-slate-400 space-y-0.5 font-mono">
-            <div class="flex justify-between"><span>Full 4-Side Quota:</span><span>৳ 6,00,000</span></div>
-            <div class="flex justify-between text-emerald-400 font-semibold"><span>2 Sides Paid:</span><span>৳ ${formatNumber(fin.outsidePlasterPaid)}</span></div>
-            <div class="flex justify-between text-amber-400 font-semibold"><span>Pending 2 Sides:</span><span>৳ 3,00,000</span></div>
+            <div class="flex justify-between text-emerald-400 font-semibold"><span>Paid So Far:</span><span>৳ ${formatNumber(fin.outsidePlasterPaid)}</span></div>
           </div>
         </div>
         <div class="pt-2 mt-2 border-t border-slate-800">
-          <div class="flex justify-between items-baseline font-mono">
-            <span class="text-[11px] text-sky-400">Click to Inspect:</span>
-            <span class="text-xs font-bold text-sky-300">5 Records</span>
-          </div>
-          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
-            <div class="bg-sky-500 h-full rounded-full" style="width: 50%"></div>
-          </div>
-          <div class="flex justify-between text-[10px] text-slate-500 mt-1 font-mono">
-            <span>Progress: 50%</span>
-            <span>Rem: ৳ 3,00,000</span>
-          </div>
+          <span class="text-[10px] text-sky-400 font-mono">Click to view outer plaster records</span>
         </div>
       `;
       container.appendChild(outerCard);
@@ -1026,8 +953,8 @@
       const extraCard = document.createElement('div');
       extraCard.className = `flex-1 min-w-[210px] p-3.5 rounded-2xl border bg-slate-900/80 cursor-pointer transition flex flex-col justify-between ${activeFilter === 'EXTRAS' ? 'border-amber-500 ring-2 ring-amber-500/30' : 'border-slate-800 hover:border-slate-700'}`;
       extraCard.onclick = () => setFilter('EXTRAS');
-      const extrasPaid = transactions.filter(t => ['LIFT_EXTRA', 'TANK'].includes(t.floor)).reduce((s,t) => s + Number(t.amount), 0);
-      const extrasTotal = Number(appConfig.extras.liftExtra) + Number(appConfig.extras.tankLump);
+      const extrasPaid = transactions.filter(t => ['LIFT_EXTRA', 'TANK'].includes(t.floor)).reduce((s,t) => s + Number(t.amount || 0), 0);
+      const extrasTotal = Number(appConfig.extras?.liftExtra || 0) + Number(appConfig.extras?.tankLump || 0);
       const extraPct = extrasTotal > 0 ? Math.min(100, Math.round((extrasPaid / extrasTotal) * 100)) : 0;
 
       extraCard.innerHTML = `
@@ -1036,15 +963,15 @@
             <span class="font-bold text-slate-200 text-sm">Structural Extras</span>
             <span class="text-[10px] bg-amber-500/20 text-amber-300 font-mono px-1.5 py-0.5 rounded">Core</span>
           </div>
-          <div class="mb-2"><span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">Lift + Tank & Stairs</span></div>
+          <div class="mb-2"><span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">Lift + Tank</span></div>
           <div class="text-[11px] text-slate-400 space-y-0.5 font-mono">
-            <div class="flex justify-between"><span>Lift Extension:</span><span>৳ ${formatNumber(appConfig.extras.liftExtra)}</span></div>
-            <div class="flex justify-between"><span>Tank & Railing:</span><span>৳ ${formatNumber(appConfig.extras.tankLump)}</span></div>
+            <div class="flex justify-between"><span>Lift:</span><span>৳ ${formatNumber(appConfig.extras?.liftExtra || 0)}</span></div>
+            <div class="flex justify-between"><span>Tank:</span><span>৳ ${formatNumber(appConfig.extras?.tankLump || 0)}</span></div>
           </div>
         </div>
         <div class="pt-2 mt-2 border-t border-slate-800">
           <div class="flex justify-between items-baseline font-mono">
-            <span class="text-[11px] text-slate-400">Total Disbursed:</span>
+            <span class="text-[11px] text-slate-400">Paid:</span>
             <span class="text-xs font-bold text-emerald-400">৳ ${formatNumber(extrasPaid)}</span>
           </div>
           <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
@@ -1067,27 +994,15 @@
         <div>
           <div class="flex justify-between items-start mb-1.5">
             <span class="font-bold text-slate-200 text-sm">Broken & Fix</span>
-            <span class="text-[10px] bg-slate-800 text-amber-300 font-mono px-1.5 py-0.5 rounded border border-slate-700">Extra / Adv</span>
+            <span class="text-[10px] bg-slate-800 text-amber-300 font-mono px-1.5 py-0.5 rounded border border-slate-700">Extra</span>
           </div>
-          <div class="mb-2"><span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">3 Entries (৳40,000)</span></div>
+          <div class="mb-2"><span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">Ad-hoc Tasks</span></div>
           <div class="text-[11px] text-slate-400 space-y-0.5 font-mono">
-            <div class="flex justify-between"><span>Wall Vanga (F4):</span><span class="text-slate-200">৳ 20,000</span></div>
-            <div class="flex justify-between"><span>Wall Vanga (F3/4):</span><span class="text-slate-200">৳ 10,000</span></div>
-            <div class="flex justify-between text-amber-300/90"><span>Otirikto Dhar (F8):</span><span>৳ 10,000</span></div>
+            <div class="flex justify-between"><span>Disbursed:</span><span class="text-amber-400 font-bold">৳ ${formatNumber(fin.brokenFixPaid)}</span></div>
           </div>
         </div>
         <div class="pt-2 mt-2 border-t border-slate-800">
-          <div class="flex justify-between items-baseline font-mono">
-            <span class="text-[11px] text-slate-400">Total Disbursed:</span>
-            <span class="text-xs font-bold text-amber-400">৳ ${formatNumber(fin.brokenFixPaid)}</span>
-          </div>
-          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
-            <div class="bg-amber-500 h-full rounded-full" style="width: 100%"></div>
-          </div>
-          <div class="flex justify-between text-[10px] text-slate-500 mt-1 font-mono">
-            <span>Status: Ad-hoc Extra</span>
-            <span class="text-amber-400/90">Click to View</span>
-          </div>
+          <span class="text-[10px] text-amber-400 font-mono">Click to inspect breakdown</span>
         </div>
       `;
       container.appendChild(brokenCard);
@@ -1123,7 +1038,7 @@
         return true;
       });
 
-      filtered.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));
+      filtered.sort((a, b) => new Date(b.isoDate || 0) - new Date(a.isoDate || 0));
 
       const filteredTotal = filtered.reduce((sum, t) => sum + Number(t.amount || 0), 0);
       document.getElementById('filteredStats').innerText = `Showing ${filtered.length} of ${transactions.length} entries`;
@@ -1155,10 +1070,10 @@
         }).join(' ');
 
         tr.innerHTML = `
-          <td class="px-4 py-3 whitespace-nowrap text-slate-300 font-mono text-xs">${item.dateStr}</td>
+          <td class="px-4 py-3 whitespace-nowrap text-slate-300 font-mono text-xs">${item.dateStr || ''}</td>
           <td class="px-4 py-3 whitespace-nowrap font-medium text-slate-200 text-xs">${getScopeName(item.floor)}</td>
           <td class="px-4 py-3 text-slate-200 text-xs">
-            <div class="font-medium">${item.task}</div>
+            <div class="font-medium">${item.task || ''}</div>
             ${item.recipient ? `<div class="text-[10px] text-slate-400 font-mono mt-0.5"><i class="fa-solid fa-user-check text-[9px] mr-1"></i>${item.recipient}</div>` : ''}
           </td>
           <td class="px-4 py-3"><div class="flex flex-wrap gap-1">${tagBadges}</div></td>
@@ -1173,10 +1088,10 @@
     }
 
     function getScopeName(floorKey) {
-      if (appConfig.floors[floorKey]) return appConfig.floors[floorKey].name;
-      if (floorKey === 'LIFT_EXTRA') return 'Structural Extra: Lift 5ft';
+      if (appConfig.floors && appConfig.floors[floorKey]) return appConfig.floors[floorKey].name;
+      if (floorKey === 'LIFT_EXTRA') return 'Structural Extra: Lift';
       if (floorKey === 'TANK') return 'Structural Extra: Water Tank';
-      if (floorKey === 'OUTSIDE_POOL') return 'Facade: Outside Plaster Pool';
+      if (floorKey === 'OUTSIDE_POOL') return 'Facade: Outside Plaster';
       return floorKey;
     }
 
@@ -1198,7 +1113,7 @@
     }
 
     // ==========================================
-    // 7. TRANSACTION CRUD (WITH AUTO CLOUD SYNC)
+    // 6. ACTIONS & MUTATIONS
     // ==========================================
     function openModal(editId = null) {
       const modal = document.getElementById('entryModal');
@@ -1210,10 +1125,10 @@
         if (item) {
           document.getElementById('modalTitle').innerText = 'Edit Construction Payment';
           document.getElementById('entryFormId').value = item.id;
-          document.getElementById('inputTask').value = item.task;
-          document.getElementById('inputFloor').value = item.floor;
-          document.getElementById('inputAmount').value = item.amount;
-          document.getElementById('inputDateStr').value = item.dateStr;
+          document.getElementById('inputTask').value = item.task || '';
+          document.getElementById('inputFloor').value = item.floor || '1';
+          document.getElementById('inputAmount').value = item.amount || '';
+          document.getElementById('inputDateStr').value = item.dateStr || '';
           document.getElementById('inputRecipient').value = item.recipient || '';
 
           document.querySelectorAll('#entryForm input[name="tagOption"]').forEach(cb => {
@@ -1296,16 +1211,13 @@
       }
     }
 
-    // ==========================================
-    // 8. SETTINGS MANAGEMENT
-    // ==========================================
     function openSettingsModal() {
       const container = document.getElementById('settingsInputsContainer');
       container.innerHTML = '';
 
       for (let i = 1; i <= 9; i++) {
         const key = String(i);
-        const f = appConfig.floors[key];
+        const f = appConfig.floors[key] || { name: `Floor ${i}`, area: 0, rate: 0 };
         const row = document.createElement('div');
         row.className = "grid grid-cols-3 gap-2 items-center bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-xs";
         row.innerHTML = `
@@ -1322,8 +1234,8 @@
         container.appendChild(row);
       }
 
-      document.getElementById('settingLiftExtra').value = appConfig.extras.liftExtra;
-      document.getElementById('settingTankExtra').value = appConfig.extras.tankLump;
+      document.getElementById('settingLiftExtra').value = appConfig.extras?.liftExtra || 0;
+      document.getElementById('settingTankExtra').value = appConfig.extras?.tankLump || 0;
       document.getElementById('settingsModal').classList.remove('hidden');
     }
 
@@ -1337,8 +1249,10 @@
           const key = String(i);
           const areaVal = Number(document.getElementById(`settingArea_${key}`).value) || 0;
           const rateVal = Number(document.getElementById(`settingRate_${key}`).value) || 0;
-          appConfig.floors[key].area = areaVal;
-          appConfig.floors[key].rate = rateVal;
+          if (appConfig.floors[key]) {
+            appConfig.floors[key].area = areaVal;
+            appConfig.floors[key].rate = rateVal;
+          }
         }
         appConfig.extras.liftExtra = Number(document.getElementById('settingLiftExtra').value) || 0;
         appConfig.extras.tankLump = Number(document.getElementById('settingTankExtra').value) || 0;
@@ -1349,9 +1263,6 @@
       });
     }
 
-    // ==========================================
-    // 9. LIVE JSON EDITOR (CLOUD & LOCAL COMMIT)
-    // ==========================================
     function openJsonModal() {
       const payload = {
         config: appConfig,
@@ -1386,7 +1297,7 @@
         const msg = document.getElementById('jsonValidationMsg');
         try {
           const parsed = JSON.parse(txt);
-          if (parsed && parsed.transactions && Array.isArray(parsed.transactions)) {
+          if (parsed && Array.isArray(parsed.transactions)) {
             transactions = parsed.transactions;
             if (parsed.config) appConfig = parsed.config;
 
@@ -1473,7 +1384,9 @@
       }
     }
 
-    window.addEventListener('DOMContentLoaded', initApp);
+    window.addEventListener('load', () => {
+      initApp();
+    });
   </script>
 </body>
 </html>
